@@ -1,0 +1,6 @@
+nombre del archivo: 
+ Tamaño: 
+ Cliente: Cliente0
+ Entrega exitosa: 
+ Tiempo de transferencia: 
+ Número de paquetes recibidos:  número de bytes recibidos: 
