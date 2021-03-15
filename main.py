@@ -40,44 +40,51 @@ def conexion():
     cant_paquetes=0
     peso_tot=0
     while (True):
-        mens = "Mensaje de confirmacion. Listo para recibir un archivo"
-        obj.send(mens)
-        recibido = obj.recv(4096)
+        obj.send(b"Mensaje de confirmacion. Listo para recibir un archivo")
         print("Se recibio un archivo del servidor")
         nombre_archivo = cliente + "-Prueba-" + str(conexiones)
         archivoPorEscribir = os.path.join(path_archivos, nombre_archivo)
         file1 = open(archivoPorEscribir, "wb")
-        file1.write(recibido)
+        recibido = obj.recv(4096)
+        while len(recibido)>0:
+            print("Recibiendo paquete")
+            file1.write(recibido)
+            recibido = obj.recv(4096)
+        print("Terminó la recepción de paquetes")
         file1.close()
         dataHash = open(archivoPorEscribir)
-	file.write("\n El archivo recibido fue : "+nombre_archivo)
-	file.write("\n El peso fue de :"+str(os.path.getsize(archivoPorEscribir))+" Bytes")
+        file.write("\n El archivo recibido fue : "+nombre_archivo)
+        file.write("\n El peso fue de :"+str(os.path.getsize(archivoPorEscribir))+" Bytes")
         cant_paquetes=cant_paquetes+1
         peso_tot=peso_tot+float(os.path.getsize(archivoPorEscribir))
         file.write("\n Entrega exitosa: ")
         file.write("\n Cliente: "+cliente)
-# ------------------------------------- HASHING! ------------------------------------------------
-        print("En espera de hash por parte del servidor")
-        hash = obj.recv(4096)
-        hashstr = hash.decode('utf-8')
-        print(hashstr)
-        print("Verificando integridad")
-        file_hash = hashlib.sha256()
-        fb = dataHash.read(BLOCK_SIZE)
-        while len(fb) > 0:
-            file_hash.update(fb)
-            fb = dataHash.read(BLOCK_SIZE)
-        resultadoHash = file_hash.hexdigest()
-        dataHash.close()
-        print("Cliente "+str(resultadoHash))
-        print("Servidor "+str(hash))
-        if(str(resultadoHash)==str(hash)):
-            print("Coincide")
 
-	if(os.path.getsize(archivoPorEscribir)!=0):
-		file.write("si")
-	else:
-		file.write("no")
+# ------------------------------------- HASHING! ------------------------------------------------
+
+        #print("En espera de hash por parte del servidor")
+        #hash = obj.recv(4096)
+        #hashstr = hash.decode('utf-8')
+        #print(hashstr)
+        #print("Verificando integridad")
+        #hash = hashlib.sha256()
+        #fb = recibido.read(65536)
+        #while len(fb) > 0:
+        #    hash.update(fb.encode('utf-8'))
+        #    fb = recibido.read(65536)
+        #resultadoHash = hash.hexdigest()
+        #obj.send(resultadoHash.encode('utf-8'))
+        #dataHash.close()
+        #print("Cliente "+str(resultadoHash))
+        #print("Servidor "+str(hash))
+        #if(str(resultadoHash)==str(hash)):
+        #    print("Coincide")
+
+
+        if(os.path.getsize(archivoPorEscribir)!=0):
+            file.write("si")
+        else:
+            file.write("no")
         break
     obj.close()
     file.write("\n Cantidad de paquetes recibidos: "+str(cant_paquetes))

@@ -34,25 +34,28 @@ while True:
     connection.recv(4096)
     print("Recibio respuesta del cliente")
     directory_path = os.path.dirname(__file__)
-    ruta = os.path.join(directory_path,"ArchivosParaEnviar/Archivo100M.txt")
-    datax = open(ruta)
-    data = open(ruta).read(4096)
+    ruta = os.path.join(directory_path,"ArchivosParaEnviar/ArchivoPrueba.txt")
 
-    try:
-        hash = hashlib.sha256()
-        fb = datax.read(65536)
-        while len(fb) > 0:
-            hash.update(fb)
-            fb = datax.read(65536)
-        resultadoHash =  hash.hexdigest()
-        connection.send(resultadoHash) 
-    except Exception as e:
-        print("Error: %s" % (e))
-    except:
-        print("Error desconocido")
+    data = open(ruta, encoding='utf-8')
+    dr = data.read(4096)
+    while len(dr) > 0:
+        connection.send(dr.encode('utf-8'))
+        print("Enviando paquete")
+        dr = data.read(4096)
+    connection.shutdown(socket.SHUT_WR)
+    print("Todos los paquetes fueron enviados")
 
-    connection.send(data)
-    print("Conexion enviada")
+    #datax = open(ruta, encoding='utf-8')
+
+    #hash = hashlib.sha256()
+    #fb = datax.read(65536)
+    #while len(fb) > 0:
+    #    hash.update(fb.encode('utf-8'))
+    #    fb = datax.read(65536)
+    #resultadoHash =  hash.hexdigest()
+    #connection.send(resultadoHash.encode('utf-8'))
+
+    #print("Conexion enviada")
     #if data == b"DONE":
     #    print("Done Receiving.")
     #    break
