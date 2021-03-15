@@ -31,11 +31,23 @@ while True:
     # Se establece la conexion con el cliente
     connection, client_address = sock.accept()
     print ('Conexion obtenida de ', client_address)
-    print ("Recibiendo...")
+    print ("Recibiendo solicitudes...")
     connection.recv(4096)
     print("Recibio respuesta del cliente")
     directory_path = os.path.dirname(__file__)
     ruta = os.path.join(directory_path,"ArchivosParaEnviar/ArchivoPrueba.txt")
+
+    datax = open(ruta, encoding='utf-8')
+
+    hash = hashlib.sha256()
+    fb = datax.read(65536)
+    while len(fb) > 0:
+        hash.update(fb.encode('utf-8'))
+        fb = datax.read(65536)
+    resultadoHash = hash.hexdigest()
+    strHas = str(resultadoHash).encode('utf-8')
+    connection.send(bytes(strHas))
+    print("Se envió el HASH al cliente")
 
     data = open(ruta, encoding='utf-8')
     dr = data.read(4096)
@@ -46,18 +58,6 @@ while True:
     print("Todos los paquetes fueron enviados")
 
 
-    datax = open(ruta, encoding='utf-8')
-
-    hash = hashlib.sha256()
-    fb = datax.read(65536)
-    while len(fb) > 0:
-        hash.update(fb.encode('utf-8'))
-        fb = datax.read(65536)
-    resultadoHash =  hash.hexdigest()
-    print(sys.getsizeof(resultadoHash))
-    strHas = str(resultadoHash).encode('utf-8')
-    connection.send(bytes(strHas))
-    print("Se envió el HASH al cliente")
     connection.shutdown(socket.SHUT_WR)
 
     #print("Conexion enviada")

@@ -42,7 +42,8 @@ def conexion():
     peso_tot=0
     while (True):
         obj.send(b"Mensaje de confirmacion. Listo para recibir un archivo")
-        print("Se recibio un archivo del servidor")
+        serverHash = obj.recv(4096)
+        print("Recibió el hash del archivo del servidor")
         nombre_archivo = cliente + "-Prueba-" + str(conexiones)
         archivoPorEscribir = os.path.join(path_archivos, nombre_archivo)
         file1 = open(archivoPorEscribir, "wb")
@@ -51,7 +52,7 @@ def conexion():
             print("Recibiendo paquete")
             file1.write(recibido)
             recibido = obj.recv(4096)
-        print("Terminó la recepción de paquetes")
+        print("Terminó la recepción de paquetes. Se recibió un archivo completo")
         file1.close()
         dataHash = open(archivoPorEscribir)
         file.write("\n El archivo recibido fue : "+nombre_archivo)
@@ -64,8 +65,6 @@ def conexion():
 # ------------------------------------- HASHING! ------------------------------------------------
 
         #print("En espera de hash por parte del servidor")
-        hash = obj.recv(4096)
-        print(hash)
         directory_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
         ruta = os.path.join( directory_path, "ArchivosRecibidos/"+nombre_archivo)
         data = open(ruta, encoding='utf-8')
@@ -76,13 +75,16 @@ def conexion():
             hash.update(fb.encode('utf-8'))
             fb = data.read(65536)
         resultadoHash = hash.hexdigest()
-        print(resultadoHash)
-        #obj.send(resultadoHash.encode('utf-8'))
-        #dataHash.close()
-        #print("Cliente "+str(resultadoHash))
-        #print("Servidor "+str(hash))
-        #if(str(resultadoHash)==str(hash)):
-        #    print("Coincide")
+
+
+        if(resultadoHash==serverHash.decode('utf-8')):
+            print("Integridad confirmada")
+        else:
+            print("Falla de integridad")
+            print("Enviado por el servidor:")
+            print(type(serverHash.decode('utf-8')))
+            print("Recuperado por el cliente:")
+            print(type(resultadoHash))
 
 
         if(os.path.getsize(archivoPorEscribir)!=0):
