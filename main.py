@@ -45,16 +45,18 @@ def conexion():
         print("Se recibio un archivo del servidor")
         file.write("\n Cliente: "+cliente)
 # ------------------------------------- HASHING! ------------------------------------------------
-#        print("En espera de hash por parte del servidor")
-#        hash = obj.recv(4096)
-#        print("Verificando integridad")
-#        file_hash = hashlib.sha256()
-#        with recibido as f:
-#            fb = f.read(BLOCK_SIZE)
-#            while len(fb) > 0:
-#                file_hash.update(fb)
-#                fb = f.read(BLOCK_SIZE)
-#        resultadoHash = file_hash.hexdigest()
+        print("En espera de hash por parte del servidor")
+        hash = obj.recv(4096)
+        print("Verificando integridad")
+        file_hash = hashlib.sha256()
+        with recibido as f:
+            fb = f.read(BLOCK_SIZE)
+            while len(fb) > 0:
+                file_hash.update(fb)
+                fb = f.read(BLOCK_SIZE)
+        resultadoHash = file_hash.hexdigest()
+        if(str(resultadoHash)==hash):
+            print("Coincide")
 #------------- IF HASHING SE CUMPLE, ESCRIBE, SINO, NO ---------------------------------------
         nombre_archivo = cliente + "-Prueba-" + str(conexiones)
         archivoPorEscribir = os.path.join(path_archivos, nombre_archivo)
@@ -79,7 +81,7 @@ def conexion():
     print("Conexión cerrada")
 
 
-NUM_HILOS = 25
+NUM_HILOS = 1
 
 for num_hilo in range(NUM_HILOS):
     hilo = threading.Thread(target=conexion,name='Cliente'+str(num_hilo))

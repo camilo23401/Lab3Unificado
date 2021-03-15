@@ -17,12 +17,11 @@ port = 6666
 
 # Lo vinculamos al puerto con la función bind()
 sock.bind((host, port))
-print ("Socket bind completado con host " +host+" y puerto "+port)
+print ("Socket bind completado con host " +str(host)+" y puerto "+str(port))
 
 # Establecemos un *timeout*
 sock.settimeout(60)
 
-file = open("img.png", "wb")
 # Ponemos el servidor en modo escucha:
 sock.listen(1)
 
@@ -36,15 +35,17 @@ while True:
     print("Recibio respuesta del cliente")
     directory_path = os.path.dirname(__file__)
     ruta = os.path.join(directory_path,"ArchivosParaEnviar/Archivo100M.txt")
+    datax = open(ruta)
     data = open(ruta).read(4096)
 
     try:
         hash = hashlib.sha256()
-        with open(data, "rb") as f:
-            for bloque in iter(lambda: f.read(4096), b""):
-                hash.update(bloque)
-                hash.hexdigest()
-                connection.send(hash)
+        fb = datax.read(65536)
+        while len(fb) > 0:
+            hash.update(fb)
+            fb = datax.read(65536)
+        resultadoHash =  hash.hexdigest()
+        connection.send(str(resultadoHash)) 
     except Exception as e:
         print("Error: %s" % (e))
     except:
