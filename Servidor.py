@@ -45,7 +45,7 @@ while True:
             hash.update(fb)
             fb = datax.read(65536)
         resultadoHash =  hash.hexdigest()
-        connection.send(str(resultadoHash)) 
+        connection.send(resultadoHash) 
     except Exception as e:
         print("Error: %s" % (e))
     except:

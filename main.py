@@ -6,6 +6,7 @@ import hashlib
 from datetime import datetime
 import threading
 from time import time
+import sys
 
 def conexion():
     host = '127.0.0.1'
@@ -43,31 +44,36 @@ def conexion():
         obj.send(mens)
         recibido = obj.recv(4096)
         print("Se recibio un archivo del servidor")
-        file.write("\n Cliente: "+cliente)
-# ------------------------------------- HASHING! ------------------------------------------------
-        print("En espera de hash por parte del servidor")
-        hash = obj.recv(4096)
-        print("Verificando integridad")
-        file_hash = hashlib.sha256()
-        with recibido as f:
-            fb = f.read(BLOCK_SIZE)
-            while len(fb) > 0:
-                file_hash.update(fb)
-                fb = f.read(BLOCK_SIZE)
-        resultadoHash = file_hash.hexdigest()
-        if(str(resultadoHash)==hash):
-            print("Coincide")
-#------------- IF HASHING SE CUMPLE, ESCRIBE, SINO, NO ---------------------------------------
         nombre_archivo = cliente + "-Prueba-" + str(conexiones)
         archivoPorEscribir = os.path.join(path_archivos, nombre_archivo)
         file1 = open(archivoPorEscribir, "wb")
         file1.write(recibido)
         file1.close()
+        dataHash = open(archivoPorEscribir)
 	file.write("\n El archivo recibido fue : "+nombre_archivo)
 	file.write("\n El peso fue de :"+str(os.path.getsize(archivoPorEscribir))+" Bytes")
         cant_paquetes=cant_paquetes+1
         peso_tot=peso_tot+float(os.path.getsize(archivoPorEscribir))
         file.write("\n Entrega exitosa: ")
+        file.write("\n Cliente: "+cliente)
+# ------------------------------------- HASHING! ------------------------------------------------
+        print("En espera de hash por parte del servidor")
+        hash = obj.recv(4096)
+        hashstr = hash.decode('utf-8')
+        print(hashstr)
+        print("Verificando integridad")
+        file_hash = hashlib.sha256()
+        fb = dataHash.read(BLOCK_SIZE)
+        while len(fb) > 0:
+            file_hash.update(fb)
+            fb = dataHash.read(BLOCK_SIZE)
+        resultadoHash = file_hash.hexdigest()
+        dataHash.close()
+        print("Cliente "+str(resultadoHash))
+        print("Servidor "+str(hash))
+        if(str(resultadoHash)==str(hash)):
+            print("Coincide")
+
 	if(os.path.getsize(archivoPorEscribir)!=0):
 		file.write("si")
 	else:
