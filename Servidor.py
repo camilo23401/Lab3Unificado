@@ -44,11 +44,12 @@ while True:
             for bloque in iter(lambda: f.read(4096), b""):
                 hash.update(bloque)
                 hash.hexdigest()
+                connection.send(hash)
     except Exception as e:
         print("Error: %s" % (e))
     except:
         print("Error desconocido")
-        
+
     connection.send(data)
     print("Conexion enviada")
     #if data == b"DONE":
