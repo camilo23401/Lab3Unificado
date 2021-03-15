@@ -1,5 +1,6 @@
 
 #coding=utf-8
+import inspect
 import socket
 import os
 import hashlib
@@ -66,13 +67,17 @@ def conexion():
         #hash = obj.recv(4096)
         #hashstr = hash.decode('utf-8')
         #print(hashstr)
-        #print("Verificando integridad")
-        #hash = hashlib.sha256()
-        #fb = recibido.read(65536)
-        #while len(fb) > 0:
-        #    hash.update(fb.encode('utf-8'))
-        #    fb = recibido.read(65536)
-        #resultadoHash = hash.hexdigest()
+        directory_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+        ruta = os.path.join( directory_path, "ArchivosRecibidos/"+nombre_archivo)
+        data = open(ruta, encoding='utf-8')
+        print("Verificando integridad")
+        hash = hashlib.sha256()
+        fb = data.read(65536)
+        while len(fb) > 0:
+            hash.update(fb.encode('utf-8'))
+            fb = data.read(65536)
+        resultadoHash = hash.hexdigest()
+        print(resultadoHash)
         #obj.send(resultadoHash.encode('utf-8'))
         #dataHash.close()
         #print("Cliente "+str(resultadoHash))

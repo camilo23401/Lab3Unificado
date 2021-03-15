@@ -4,6 +4,7 @@ import socket
 import threading
 import os
 import hashlib
+import sys
 
 # Creamos el socket del servidor TCP:
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -42,18 +43,22 @@ while True:
         connection.send(dr.encode('utf-8'))
         print("Enviando paquete")
         dr = data.read(4096)
-    connection.shutdown(socket.SHUT_WR)
     print("Todos los paquetes fueron enviados")
 
-    #datax = open(ruta, encoding='utf-8')
 
-    #hash = hashlib.sha256()
-    #fb = datax.read(65536)
-    #while len(fb) > 0:
-    #    hash.update(fb.encode('utf-8'))
-    #    fb = datax.read(65536)
-    #resultadoHash =  hash.hexdigest()
+    datax = open(ruta, encoding='utf-8')
+
+    hash = hashlib.sha256()
+    fb = datax.read(65536)
+    while len(fb) > 0:
+        hash.update(fb.encode('utf-8'))
+        fb = datax.read(65536)
+    resultadoHash =  hash.hexdigest()
+    print(sys.getsizeof(resultadoHash))
+    print(resultadoHash)
     #connection.send(resultadoHash.encode('utf-8'))
+    print("Se envió el HASH al cliente")
+    connection.shutdown(socket.SHUT_WR)
 
     #print("Conexion enviada")
     #if data == b"DONE":
