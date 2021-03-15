@@ -55,8 +55,8 @@ while True:
         fb = datax.read(65536)
     resultadoHash =  hash.hexdigest()
     print(sys.getsizeof(resultadoHash))
-    print(resultadoHash)
-    #connection.send(resultadoHash.encode('utf-8'))
+    strHas = str(resultadoHash).encode('utf-8')
+    connection.send(bytes(strHas))
     print("Se envió el HASH al cliente")
     connection.shutdown(socket.SHUT_WR)
 

@@ -64,9 +64,8 @@ def conexion():
 # ------------------------------------- HASHING! ------------------------------------------------
 
         #print("En espera de hash por parte del servidor")
-        #hash = obj.recv(4096)
-        #hashstr = hash.decode('utf-8')
-        #print(hashstr)
+        hash = obj.recv(4096)
+        print(hash)
         directory_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
         ruta = os.path.join( directory_path, "ArchivosRecibidos/"+nombre_archivo)
         data = open(ruta, encoding='utf-8')
@@ -99,7 +98,7 @@ def conexion():
     print("Conexión cerrada")
 
 
-NUM_HILOS = 1
+NUM_HILOS = 25
 
 for num_hilo in range(NUM_HILOS):
     hilo = threading.Thread(target=conexion,name='Cliente'+str(num_hilo))

@@ -1,0 +1,8 @@
+
+ El archivo recibido fue : Cliente7-Prueba-25
+ El peso fue de :5991 Bytes
+ Entrega exitosa: 
+ Cliente: Cliente7si
+ Cantidad de paquetes recibidos: 1
+ total bytes recibidos: 5991.0
+ Tiempo de transferencia: 0.003996610641479492seg
