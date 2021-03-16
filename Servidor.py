@@ -7,6 +7,27 @@ import hashlib
 import sys
 from datetime import datetime
 from time import time
+
+archivo = input("1.Enviar a cliente archivo de 100M \n2.Transmitir a clientes archivo de 250M")
+numCliente = input("A cuantos clientes desea transmitir en simúltaneo")
+nomArchivo = ""
+tamano = 0
+ruta = ""
+
+directory_path = os.path.dirname(__file__)
+def cambiarRuta(numArchivo):
+    global ruta
+    global tamano
+    global nomArchivo
+    if (numArchivo == "1"):
+        ruta = os.path.join(directory_path, "ArchivosParaEnviar/ArchivoPrueba.txt")
+        tamano = 100
+        nomArchivo = "Archivo100M"
+    if (numArchivo == "2"):
+        ruta = os.path.join(directory_path, "ArchivosParaEnviar/Archivo200M.txt")
+        tamano = 200
+        nomArchivo = "Archivo250M"
+
 # Creamos el socket del servidor TCP:
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ("Socket creado")
@@ -38,7 +59,7 @@ sock.settimeout(60)
 # Ponemos el servidor en modo escucha:
 sock.listen(1)
 
-
+cambiarRuta(archivo)
 while True:
     # Se establece la conexion con el cliente
     connection, client_address = sock.accept()
@@ -46,8 +67,6 @@ while True:
     print ("Recibiendo solicitudes...")
     connection.recv(4096)
     print("Recibio respuesta del cliente")
-    directory_path = os.path.dirname(__file__)
-    ruta = os.path.join(directory_path,"ArchivosParaEnviar/ArchivoPrueba.txt")
 
     datax = open(ruta, encoding='utf-8')
 
@@ -73,8 +92,8 @@ while True:
     print("Todos los paquetes fueron enviados")
     cant_paquetes=cant_paquetes+1
     peso_tot=peso_tot+float(os.path.getsize(ruta))
-    file.write("\n El archivo enviado fue: "+"NOMBRE DEL ARCHIVO" )
-    file.write("\n El tamaño del archivo es: "+"PESO DEL ARCHIVO")
+    file.write("\n El archivo enviado fue: "+ nomArchivo )
+    file.write("\n El tamaño del archivo es: "+ str(tamano)+"MB")
     file.write("\n La entrega fue exitosa")
     file.write("\n El cliente al que fue enviado el archivo: "+str(client_address))
     file.write("\n El peso total transferido fue: "+str(peso_tot))

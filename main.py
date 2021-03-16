@@ -20,7 +20,8 @@ def conexion():
     obj = socket.socket()
 
     obj.connect((host, port))
-    print("conecto")
+    cliente = threading.currentThread().getName()
+    print("Cliente " + cliente + " conectado al servidor")
 
     year=datetime.now().year
     mes = datetime.now().month
@@ -34,9 +35,7 @@ def conexion():
     archivolog = path_logs+fecha+".txt"
     file = open(archivolog, "w")
 
-    cliente= threading.currentThread().getName()
-    print("Cliente "+cliente)
-    print("Conectado al servidor")
+
     start_time=time()
     cant_paquetes=0
     peso_tot=0
@@ -82,9 +81,9 @@ def conexion():
         else:
             print("Falla de integridad")
             print("Enviado por el servidor:")
-            print(type(serverHash.decode('utf-8')))
+            print((serverHash.decode('utf-8')))
             print("Recuperado por el cliente:")
-            print(type(resultadoHash))
+            print((resultadoHash))
 
 
         if(os.path.getsize(archivoPorEscribir)!=0):
@@ -97,7 +96,7 @@ def conexion():
     file.write("\n total bytes recibidos: "+str(peso_tot))
     file.write("\n Tiempo de transferencia: "+str(time()-start_time)+"seg")
     file.close()
-    print("Conexión cerrada")
+    print("Conexión del cliente "+ cliente + " cerrada")
 
 
 NUM_HILOS = 1
