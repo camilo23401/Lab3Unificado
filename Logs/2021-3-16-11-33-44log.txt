@@ -1,0 +1,141 @@
+
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57096)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.005388498306274414 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57095)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0018846988677978516 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57097)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.001994609832763672 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57098)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.001994609832763672 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57099)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.002680540084838867 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57100)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0006771087646484375 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57101)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.001990079879760742 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57102)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0059833526611328125 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57103)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0021262168884277344 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57104)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.01273798942565918 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57105)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.005556583404541016 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57106)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.004355907440185547 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57107)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0062863826751708984 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57108)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0072689056396484375 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57109)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.007317066192626953 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57110)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.013080358505249023 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57111)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.007989883422851562 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57112)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.009185314178466797 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57113)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.007927894592285156 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57114)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0020940303802490234 seg

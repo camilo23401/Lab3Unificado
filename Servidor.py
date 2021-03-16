@@ -1,5 +1,5 @@
 #coding=utf-8
-# Importar librerias
+#Importar librerias
 import socket
 import threading
 import os
@@ -7,6 +7,26 @@ import hashlib
 import sys
 from datetime import datetime
 from time import time
+
+archivo = input(" 1.Enviar a clientes archivo de 100M  \n 2.Enviar a clientes archivo de 250M   ")
+numCliente = input(" A cuantos clientes desea transmitir en simúltaneo?   ")
+nomArchivo = ""
+tamano = 0
+ruta = ""
+
+directory_path = os.path.dirname(__file__)
+def cambiarRuta(numArchivo):
+    global ruta
+    global tamano
+    global nomArchivo
+    if (numArchivo == "1"):
+        ruta = os.path.join(directory_path, "ArchivosParaEnviar/ArchivoPrueba.txt")
+        tamano = 100
+        nomArchivo = "Archivo100M"
+    if (numArchivo == "2"):
+        ruta = os.path.join(directory_path, "ArchivosParaEnviar/Archivo200M.txt")
+        tamano = 200
+        nomArchivo = "Archivo250M"
 
 # Creamos el socket del servidor TCP:
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,30 +69,52 @@ sock.settimeout(60)
 # Ponemos el servidor en modo escucha:
 sock.listen(1)
 
-while True:
-    # Se establece la conexion con el cliente
-    connection, client_address = sock.accept()
-    print ('Conexion obtenida de ', client_address)
-    print ("Recibiendo...")
-    connection.recv(4096)
-    print("Recibio respuesta del cliente")
-    directory_path = os.path.dirname(__file__)
-    ruta = os.path.join(directory_path,"ArchivosParaEnviar/ArchivoPrueba.txt")
+connection, client_address = sock.accept()
+cambiarRuta(archivo)
 
-    data = open(ruta, encoding='utf-8')
-    dr = data.read(4096)
-    while len(dr) > 0:
-        connection.send(dr.encode('utf-8'))
-        print("Enviando paquete")
+def conexionServ():
+    numeroConectados = 0
+    while True & ( int(numCliente) <= numeroConectados):
+        # Se establece la conexion con el cliente
+        print ('Conexion obtenida de ', client_address)
+        numeroConectados+=1
+        print ("Recibiendo solicitudes...")
+        print(numeroConectados);
+        connection.recv(4096)
+        print("Recibio respuesta del cliente")
+
+        datax = open(ruta, encoding='utf-8')
+
+        hash = hashlib.sha256()
+        start_time=time()
+        cant_paquetes=0
+        peso_tot=0
+        fb = datax.read(65536)
+        while len(fb) > 0:
+            hash.update(fb.encode('utf-8'))
+            fb = datax.read(65536)
+        resultadoHash = hash.hexdigest()
+        strHas = str(resultadoHash).encode('utf-8')
+        connection.send(bytes(strHas))
+        print("Se envió el HASH al cliente")
+
+        data = open(ruta, encoding='utf-8')
         dr = data.read(4096)
-    print("Todos los paquetes fueron enviados")
-
-    file.write("\n El archivo enviado fue : ")
-    file.write("\n El peso fue de :"+str(os.path.getsize(ruta))+" Bytes")
-    cant_paquetes=cant_paquetes+1
-    peso_tot=peso_tot+float(os.path.getsize(ruta))
-    file.write("\n Entrega exitosa: ")
-    file.write("\n Cliente: "+ str(client_address))
+        while len(dr) > 0:
+            connection.send(dr.encode('utf-8'))
+            print("Enviando paquete")
+            dr = data.read(4096)
+        print("Todos los paquetes fueron enviados")
+        cant_paquetes=cant_paquetes+1
+        peso_tot=peso_tot+float(os.path.getsize(ruta))
+        file.write("\n El archivo enviado fue: "+ nomArchivo )
+        file.write("\n El tamaño del archivo es: "+ str(tamano)+"MB")
+        file.write("\n La entrega fue exitosa")
+        file.write("\n El cliente al que fue enviado el archivo: "+str(client_address))
+        file.write("\n El peso total transferido fue: "+str(peso_tot))
+        file.write("\n La cantidad de paquetes transferida fue: "+str(cant_paquetes))
+        file.write("\n El tiempo de transferencia fue: "+str(time()-start_time)+" seg")
+        connection.shutdown(socket.SHUT_WR)
 
     datax = open(ruta, encoding='utf-8')
 
@@ -94,9 +136,12 @@ while True:
     #    break
     #file.write(data)
 
-file.write("\n Cantidad de paquetes recibidos: "+str(cant_paquetes))
-file.write("\n total bytes recibidos: "+str(peso_tot))
-file.write("\n Tiempo de transferencia: "+str(time()-start_time)+"seg")
+for num_hilo in range(int(numCliente)):
+    hilo = threading.Thread(target=conexionServ,name='Cliente'+str(num_hilo))
+    hilo.start()
 
 file.close()
+#connection.send("Fin de la conexion")
+connection.shutdown(2)
+connection.close()
 sock.close()

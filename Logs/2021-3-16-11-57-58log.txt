@@ -1,0 +1,141 @@
+
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57279)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.015586376190185547 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57278)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.014299869537353516 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57280)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57281)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57282)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57283)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57284)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57285)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57286)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57287)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57288)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.015620946884155273 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57289)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57290)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57291)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57292)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57293)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57294)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.015620708465576172 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57295)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57296)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
+ El archivo enviado fue: Archivo100M
+ El tamaño del archivo es: 100MB
+ La entrega fue exitosa
+ El cliente al que fue enviado el archivo: ('127.0.0.1', 57297)
+ El peso total transferido fue: 6238.0
+ La cantidad de paquetes transferida fue: 1
+ El tiempo de transferencia fue: 0.0 seg
