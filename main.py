@@ -100,7 +100,7 @@ def conexion():
     print("Conexión cerrada")
 
 
-NUM_HILOS = 25
+NUM_HILOS = 1
 
 for num_hilo in range(NUM_HILOS):
     hilo = threading.Thread(target=conexion,name='Cliente'+str(num_hilo))

@@ -5,7 +5,8 @@ import threading
 import os
 import hashlib
 import sys
-
+from datetime import datetime
+from time import time
 # Creamos el socket del servidor TCP:
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ("Socket creado")
@@ -15,6 +16,17 @@ host = "localhost"
 
 # Se define el puerto
 port = 6666
+path_log="./Logs"
+year=datetime.now().year
+mes=datetime.now().month
+dia=datetime.now().day
+hora=datetime.now().hour
+min=datetime.now().minute
+seg=datetime.now().second
+
+fecha="/"+str(year)+"-"+str(mes)+"-"+str(dia)+"-"+str(hora)+"-"+str(min)+"-"+str(seg)+"log"
+archivolog=path_log+fecha+".txt"
+file=open(archivolog,"w")
 
 # Lo vinculamos al puerto con la función bind()
 sock.bind((host, port))
@@ -40,6 +52,9 @@ while True:
     datax = open(ruta, encoding='utf-8')
 
     hash = hashlib.sha256()
+    start_time=time()
+    cant_paquetes=0
+    peso_tot=0
     fb = datax.read(65536)
     while len(fb) > 0:
         hash.update(fb.encode('utf-8'))
@@ -56,8 +71,15 @@ while True:
         print("Enviando paquete")
         dr = data.read(4096)
     print("Todos los paquetes fueron enviados")
-
-
+    cant_paquetes=cant_paquetes+1
+    peso_tot=peso_tot+float(os.path.getsize(ruta))
+    file.write("\n El archivo enviado fue: "+"NOMBRE DEL ARCHIVO" )
+    file.write("\n El tamaño del archivo es: "+"PESO DEL ARCHIVO")
+    file.write("\n La entrega fue exitosa")
+    file.write("\n El cliente al que fue enviado el archivo: "+str(client_address))
+    file.write("\n El peso total transferido fue: "+str(peso_tot))
+    file.write("\n La cantidad de paquetes transferida fue: "+str(cant_paquetes))
+    file.write("\n El tiempo de transferencia fue: "+str(time()-start_time)+" seg")
     connection.shutdown(socket.SHUT_WR)
 
     #print("Conexion enviada")
