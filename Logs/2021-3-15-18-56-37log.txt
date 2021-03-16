@@ -1,0 +1,7 @@
+
+ El archivo enviado fue : 
+ El peso fue de :6238 Bytes
+ Entrega exitosa: 
+ Cliente: ('127.0.0.1', 51401)
+ Cantidad de paquetes recibidos: 1
+ total bytes recibidos: 6238.0
