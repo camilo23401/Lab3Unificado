@@ -57,14 +57,17 @@ print ("Socket bind completado con host " +str(host)+" y puerto "+str(port))
 sock.settimeout(60)
 
 # Ponemos el servidor en modo escucha:
-sock.listen(1)
+sock.listen(int(numCliente))
 
 cambiarRuta(archivo)
+numeroConectados = 0
 while True:
     # Se establece la conexion con el cliente
     connection, client_address = sock.accept()
     print ('Conexion obtenida de ', client_address)
+    numeroConectados+=1
     print ("Recibiendo solicitudes...")
+    print(numeroConectados);
     connection.recv(4096)
     print("Recibio respuesta del cliente")
 

@@ -31,7 +31,6 @@ def conexion():
     seg = datetime.now().second
 
     fecha= "/"+str(year)+"-"+str(mes)+"-"+str(dia)+"-"+str(hora)+"-"+str(min)+"-"+str(seg)+"log"
-    print(fecha)
     archivolog = path_logs+fecha+".txt"
     file = open(archivolog, "w")
 
@@ -99,7 +98,7 @@ def conexion():
     print("Conexión del cliente "+ cliente + " cerrada")
 
 
-NUM_HILOS = 1
+NUM_HILOS = 20
 
 for num_hilo in range(NUM_HILOS):
     hilo = threading.Thread(target=conexion,name='Cliente'+str(num_hilo))
