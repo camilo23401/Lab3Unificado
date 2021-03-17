@@ -1,0 +1,8 @@
+
+ El archivo recibido fue : MainThread-Prueba-25.txt
+ El peso fue de :104857600 Bytes
+ Cliente: MainThread
+ Entrega exitosa: si
+ Cantidad de paquetes recibidos: 25600
+ total bytes recibidos: 104857600.0
+ Tiempo de transferencia: 1.5851411819458008seg

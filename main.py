@@ -10,8 +10,10 @@ from time import time
 import sys
 
 aux = 0
+NUM_HILOS = 20
 def conexion():
     global aux
+    global NUM_HILOS
     host = '127.0.0.1'
     port = 6666+aux
     aux+=1
@@ -19,7 +21,7 @@ def conexion():
     path_logs = "./Logs"
 
     BLOCK_SIZE = 65536
-    conexiones = 25
+    conexiones = NUM_HILOS
     obj = socket.socket()
     try:
         obj.connect((host, port))
@@ -53,14 +55,13 @@ def conexion():
                 print("Recibiendo paquete")
                 file1.write(recibido)
                 recibido = obj.recv(4096)
+                cant_paquetes = cant_paquetes + 1
             print("Terminó la recepción de paquetes. Se recibió un archivo completo")
             file1.close()
             dataHash = open(archivoPorEscribir)
             file.write("\n El archivo recibido fue : " + nombre_archivo)
             file.write("\n El peso fue de :" + str(os.path.getsize(archivoPorEscribir)) + " Bytes")
-            cant_paquetes = cant_paquetes + 1
             peso_tot = peso_tot + float(os.path.getsize(archivoPorEscribir))
-            file.write("\n Entrega exitosa: ")
             file.write("\n Cliente: " + cliente)
 
             # ------------------------------------- HASHING! ------------------------------------------------
@@ -86,6 +87,7 @@ def conexion():
                 print("Recuperado por el cliente:")
                 print((resultadoHash))
 
+            file.write("\n Entrega exitosa: ")
             if (os.path.getsize(archivoPorEscribir) != 0):
                 file.write("si")
             else:
@@ -102,7 +104,7 @@ def conexion():
 
 
 
-NUM_HILOS = 25
+
 
 for num_hilo in range(NUM_HILOS):
     hilo = threading.Thread(target=conexion,name='Cliente'+str(num_hilo))

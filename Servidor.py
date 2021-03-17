@@ -24,7 +24,7 @@ def cambiarRuta(numArchivo):
         tamano = 100
         nomArchivo = "Archivo100M"
     if (numArchivo == "2"):
-        ruta = os.path.join(directory_path, "ArchivosParaEnviar/Archivo200M.txt")
+        ruta = os.path.join(directory_path, "ArchivosParaEnviar/Archivo250M.txt")
         tamano = 200
         nomArchivo = "Archivo250M"
 
@@ -98,8 +98,8 @@ def conexionServ():
             connection.send(dr.encode('utf-8'))
             print("Enviando paquete")
             dr = data.read(4096)
+            cant_paquetes = cant_paquetes + 1
         print("Todos los paquetes fueron enviados")
-        cant_paquetes=cant_paquetes+1
         peso_tot=peso_tot+float(os.path.getsize(ruta))
         file.write("\n El archivo enviado fue: "+ nomArchivo )
         file.write("\n El tamaño del archivo es: "+ str(tamano)+"MB")

@@ -1,8 +1,0 @@
-
- El archivo enviado fue: NOMBRE DEL ARCHIVO
- El tamaño del archivo es: PESO DEL ARCHIVO
- La entrega fue exitosa
- El cliente al que fue enviado el archivo: ('127.0.0.1', 47478)
- El peso total transferido fue: 5927.0
- La cantidad de paquetes transferida fue: 1
- El tiempo de transferencia fue: 0.0014405250549316406 seg

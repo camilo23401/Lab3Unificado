@@ -1,8 +1,0 @@
-
- El archivo recibido fue : Cliente22-Prueba-25
- El peso fue de :1895 Bytes
- Entrega exitosa: 
- Cliente: Cliente22si
- Cantidad de paquetes recibidos: 1
- total bytes recibidos: 1895.0
- Tiempo de transferencia: 0.017997026443481445seg

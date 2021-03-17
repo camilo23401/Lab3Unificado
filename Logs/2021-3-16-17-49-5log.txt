@@ -1,8 +1,0 @@
-
- El archivo recibido fue : Cliente24-Prueba-25
- El peso fue de :1895 Bytes
- Entrega exitosa: 
- Cliente: Cliente24si
- Cantidad de paquetes recibidos: 1
- total bytes recibidos: 1895.0
- Tiempo de transferencia: 0.013999462127685547segg

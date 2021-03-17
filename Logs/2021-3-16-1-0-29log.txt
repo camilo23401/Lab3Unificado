@@ -1,5 +1,0 @@
-
- El archivo enviado fue: NOMBRE DEL ARCHIVO
- El tamaño del archivo es: PESO DEL ARCHIVO
- La entrega fue exitosa
- El cliente al que fue enviado el archivo: ('127.0.0.1', 47472)
