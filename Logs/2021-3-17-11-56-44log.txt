@@ -1,0 +1,8 @@
+
+ El archivo recibido fue : Cliente1-Prueba-20.txt
+ El peso fue de :0 Bytes
+ Cliente: Cliente1
+ Entrega exitosa: no
+ Cantidad de paquetes recibidos: 0
+ total bytes recibidos: 0.0
+ Tiempo de transferencia: 60.029696464538574seg.1763031482696533seg

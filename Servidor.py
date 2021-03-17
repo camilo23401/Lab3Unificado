@@ -8,8 +8,8 @@ import sys
 from datetime import datetime
 from time import time
 
-archivo = input("1.Enviar a cliente archivo de 100M \n2.Transmitir a clientes archivo de 250M")
-numCliente = input("A cuantos clientes desea transmitir en simúltaneo")
+archivo = input(" 1.Enviar a clientes archivo de 100M    \n 2.Enviar a clientes archivo de 250M    ")
+numCliente = input(" A cuantos clientes desea transmitir en simúltaneo?   ")
 nomArchivo = ""
 tamano = 0
 ruta = ""
@@ -29,14 +29,16 @@ def cambiarRuta(numArchivo):
         nomArchivo = "Archivo250M"
 
 aux = 0
+numeroConectados = 0
 def conexionServ():
     global aux
+    global numeroConectados
     # Creamos el socket del servidor TCP:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     print("Socket creado")
 
     # Se define el host
-    host = "localhost"
+    host = "0.0.0.0"
 
     # Se define el puerto
     port = 6666+aux
@@ -65,16 +67,20 @@ def conexionServ():
     sock.listen(int(numCliente))
 
     cambiarRuta(archivo)
-    numeroConectados = 0
 
     while True & numeroConectados<=int(numCliente):
         # Se establece la conexion con el cliente
         connection, client_address = sock.accept()
+        connection.recv(4096)
         print ('Conexion obtenida de ', client_address)
         numeroConectados+=1
-        print ("Recibiendo solicitudes...")
-        print(numeroConectados);
-        connection.recv(4096)
+
+        #if numeroConectados == int(numCliente):
+        while numeroConectados != int(numCliente):
+            print("Esperando clientes...")
+
+        print("Recibiendo solicitudes...")
+        print(numeroConectados)
         print("Recibio respuesta del cliente")
 
         datax = open(ruta, encoding='utf-8')
@@ -111,6 +117,7 @@ def conexionServ():
         file.close()
         connection.close()
         break
+
     sock.close()
     #print("Conexion enviada")
     #if data == b"DONE":

@@ -10,10 +10,12 @@ from time import time
 import sys
 
 aux = 0
-NUM_HILOS = 20
+NUM_HILOS = 25
 def conexion():
     global aux
     global NUM_HILOS
+
+    #Cambiar el host de acuerdo a donde se esté corriendo el servidor
     host = '127.0.0.1'
     port = 6666+aux
     aux+=1
@@ -27,6 +29,7 @@ def conexion():
         obj.connect((host, port))
         cliente = threading.currentThread().getName()
         print("Cliente " + cliente + " conectado al servidor")
+        print("Cliente " + cliente + " listo para recibir...")
 
         year = datetime.now().year
         mes = datetime.now().month
@@ -101,9 +104,6 @@ def conexion():
         print("Conexión del cliente " + cliente + " cerrada")
     except:
         print("Conexión denegada. Se llegó al máximo permitido en el servidor")
-
-
-
 
 
 for num_hilo in range(NUM_HILOS):
