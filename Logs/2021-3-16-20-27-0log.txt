@@ -1,0 +1,8 @@
+
+ El archivo recibido fue : Cliente6-Prueba-20.txt
+ El peso fue de :104857600 Bytes
+ Cliente: Cliente6
+ Entrega exitosa: si
+ Cantidad de paquetes recibidos: 25600
+ total bytes recibidos: 104857600.0
+ Tiempo de transferencia: 22.22590398788452segg

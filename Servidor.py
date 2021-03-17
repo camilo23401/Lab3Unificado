@@ -108,13 +108,10 @@ def conexionServ():
         file.write("\n El peso total transferido fue: "+str(peso_tot))
         file.write("\n La cantidad de paquetes transferida fue: "+str(cant_paquetes))
         file.write("\n El tiempo de transferencia fue: "+str(time()-start_time)+" seg")
-        connection.shutdown(socket.SHUT_WR)
         file.close()
-        connection.shutdown(2)
         connection.close()
-        sock.close()
         break
-
+    sock.close()
     #print("Conexion enviada")
     #if data == b"DONE":
     #    print("Done Receiving.")
